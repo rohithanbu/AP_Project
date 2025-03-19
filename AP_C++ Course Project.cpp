@@ -17,23 +17,23 @@ public:
     Student() : rollNumber(0), marks(0) {}
     Student(string name, int rollNumber, double marks) : name(name), rollNumber(rollNumber), marks(marks) {}
 
-    // Friend functions
+    
     friend void displayStudent(const Student& student);
     friend void updateStudentData(Student& student);
     friend void exportStudentToCSV(const Student& student, ofstream& file);
     friend void loadStudentFromFile(Student& student, const string& line);
 
-    // Getters
+    
     int getRollNumber() const { return rollNumber; }
     string getName() const { return name; }
     double getMarks() const { return marks; }
 
-    // Setters
+    
     void setName(const string& newName) { name = newName; }
     void setMarks(double newMarks) { marks = newMarks; }
 };
 
-// Friend function to display student details
+
 void displayStudent(const Student& student) {
     string grade;
     if (student.marks >= 90) grade = "A+";
@@ -50,7 +50,7 @@ void displayStudent(const Student& student) {
          << ", Grade: " << grade << endl;
 }
 
-// Friend function to update student details
+
 void updateStudentData(Student& student) {
     cout << "Enter new Name: ";
     cin.ignore();
@@ -59,16 +59,16 @@ void updateStudentData(Student& student) {
     while (true) {
         cout << "Enter new Marks: ";
         if (cin >> student.marks) {
-            break; // Valid input
+            break;
         } else {
-            cin.clear(); // Clear the fail state
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid input! Please enter a number for marks." << endl;
         }
     }
 }
 
-// Friend function to export student data to CSV
+
 void exportStudentToCSV(const Student& student, ofstream& file) {
     string grade;
     if (student.marks >= 90) grade = "A+";
@@ -84,7 +84,7 @@ void exportStudentToCSV(const Student& student, ofstream& file) {
          << grade << "\n";
 }
 
-// Friend function to load student data from file
+
 void loadStudentFromFile(Student& student, const string& line) {
     stringstream ss(line);
     string rollStr, name, marksStr;
@@ -146,30 +146,30 @@ public:
         int rollNumber;
         double marks;
 
-        // Input validation for roll number
+        
         while (true) {
             cout << "Enter Roll Number: ";
             if (cin >> rollNumber) {
-                break; // Valid input
+                break;
             } else {
-                cin.clear(); // Clear the fail state
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Invalid input! Please enter an integer for roll number." << endl;
             }
         }
 
-        cin.ignore(); // Clear the buffer
+        cin.ignore();
         cout << "Enter Name: ";
         getline(cin, name);
 
-        // Input validation for marks
+        
         while (true) {
             cout << "Enter Marks: ";
             if (cin >> marks) {
-                break; // Valid input
+                break;
             } else {
-                cin.clear(); // Clear the fail state
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Invalid input! Please enter a number for marks." << endl;
             }
         }
@@ -192,14 +192,14 @@ public:
     void searchStudent() const {
         int rollNumber;
 
-        // Input validation for roll number
+        
         while (true) {
             cout << "Enter Roll Number to search: ";
             if (cin >> rollNumber) {
-                break; // Valid input
+                break;
             } else {
-                cin.clear(); // Clear the fail state
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Invalid input! Please enter an integer for roll number." << endl;
             }
         }
@@ -216,14 +216,14 @@ public:
     void updateStudent() {
         int rollNumber;
 
-        // Input validation for roll number
+        
         while (true) {
             cout << "Enter Roll Number to update: ";
             if (cin >> rollNumber) {
-                break; // Valid input
+                break;
             } else {
-                cin.clear(); // Clear the fail state
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Invalid input! Please enter an integer for roll number." << endl;
             }
         }
@@ -242,14 +242,14 @@ public:
     void deleteStudent() {
         int rollNumber;
 
-        // Input validation for roll number
+        
         while (true) {
             cout << "Enter Roll Number to delete: ";
             if (cin >> rollNumber) {
-                break; // Valid input
+                break;
             } else {
-                cin.clear(); // Clear the fail state
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Invalid input! Please enter an integer for roll number." << endl;
             }
         }
@@ -297,13 +297,13 @@ int main() {
         cout << "7. Exit\n";
         cout << "Enter your choice: ";
 
-        // Input validation for menu choice
+        
         while (true) {
             if (cin >> choice) {
-                break; // Valid input
+                break;
             } else {
-                cin.clear(); // Clear the fail state
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Invalid input! Please enter a number between 1 and 7." << endl;
                 cout << "Enter your choice: ";
             }
